@@ -32,7 +32,7 @@ app.get("/userEvents/:userId", async (request, response) => {
     if (!validateAuth(request, response)) return;
     if (!validateUser(request, response)) return;
     
-    fetchUserRevenue(request.params.userId, response);
+    let rows = await fetchUserRevenue(request.params.userId, response);
 
     response.status(200).send(rows);
 })
@@ -84,14 +84,15 @@ function saveEventToFile(event) {
 }
 
 async function fetchUserRevenue(userId, res) {
-    console.debug(`Retrieving user revenue for user '${request.params.userId}'`);
+    console.debug(`Retrieving user revenue for user '${userId}'`);
     try {
-        const { rows } = await pgClient.query(RETRIEVE_USER_REVENUE_QUERY, [request.params.userId]);
-        console.log(`Query executed for user '${request.params.userId}'. Result:`, rows);
+        const { rows } = await pgClient.query(RETRIEVE_USER_REVENUE_QUERY, [userId]);
+        console.log(`Query executed for user '${userId}'. Result:`, rows);
+        return rows;
     } catch (error) {
         res.status(500).send('Failed to retrieve user revenue:' + error.message);
         console.log(`Failed to retrieve user revenue. Result:`, error);
     }
-    return rows;
+    return [];
 }
 
