@@ -6,6 +6,6 @@ CREATE DATABASE finonex_exam_db;
 
 -- Create table
 CREATE TABLE users_revenue (
-  user_id SERIAL PRIMARY KEY,
+  user_id VARCHAR(255) PRIMARY KEY,
   revenue INTEGER
 );
