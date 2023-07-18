@@ -1,0 +1,30 @@
+{
+  "name": "finonex_home",
+  "version": "1.0.0",
+  "description": "Finonex Home assignment",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "client": "node client.js",
+    "processor": "node data_processor.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronenzr/finonex_project.git"
+  },
+  "author": "Ronen Tzruya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ronenzr/finonex_project/issues"
+  },
+  "homepage": "https://github.com/ronenzr/finonex_project#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "jsonlines": "^0.1.1",
+    "pg": "^8.11.1",
+    "readline": "^1.3.0",
+    "yargs": "^17.7.2"
+  }
+}
